@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USK_SOLUÇÕES | Segurança Eletrônica</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome (Ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ==================== VARIÁVEIS DE COR E ESTILO ==================== */
+        :root {
+            --primary-color: #00008B; /* Azul Escuro */
+            --accent-color: #FF8C00;  /* Laranja Segurança */
+            --accent-hover: #e07b00;
+            --bg-color: #ffffff;
+            --bg-gray: #f4f6f9;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        /* ==================== RESET BASE (MOBILE-FIRST) ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ==================== BOTÕES ==================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+        }
+
+        /* ==================== CABEÇALHO (HEADER) ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: var(--shadow-soft);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        /* Menu Mobile */
+        .menu-toggle {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: block;
+        }
+
+        .nav-links {
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            flex-direction: column;
+            text-align: center;
+            box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+            display: none; /* Oculto por padrão no mobile */
+        }
+
+        .nav-links.active {
+            display: flex;
+        }
+
+        .nav-links li {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .header-btn {
+            display: none; /* Oculto no mobile */
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            margin-top: 80px;
+            height: calc(100vh - 80px);
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 139, 0.8), rgba(0, 0, 139, 0.85)),
+                        url('https://revistasegurancaeletronica.com.br/wp-content/uploads/2021/09/o-que-considerar-antes-de-elaborar-um-projeto-de-monitoramento-e-seguranca.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: #f0f0f0;
+        }
+
+        /* ==================== SEÇÕES GERAIS ==================== */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* ==================== SERVIÇOS ==================== */
+        .services-bg {
+            background-color: var(--bg-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border-bottom: 5px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* ==================== DIFERENCIAIS ==================== */
+        .differentials-bg {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .differentials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .diff-item i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .diff-item h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .diff-item p {
+            color: #d1d5db;
+        }
+
+        /* ==================== GALERIA DE PROJETOS ==================== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,139, 0.9), transparent);
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background-color: #000033;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about p {
+            color: #a0aabf;
+            margin-top: 15px;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #a0aabf;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 8px;
+        }
+
+        .footer-contact p {
+            color: #a0aabf;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* ==================== WHATSAPP FLUTUANTE ==================== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            background-color: #1ebe5d;
+            transform: scale(1.1);
+        }
+
+        /* ==================== MEDIA QUERIES (DESKTOP) ==================== */
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            .nav-links {
+                position: static;
+                display: flex;
+                flex-direction: row;
+                width: auto;
+                box-shadow: none;
+                gap: 30px;
+            }
+
+            .nav-links li {
+                padding: 0;
+                border: none;
+            }
+
+            .header-btn {
+                display: inline-flex;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .differentials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header id="header">
+        <div class="container nav-wrapper">
+            <a href="#inicio" class="logo">
+                <i class="fa-solid fa-shield-halved"></i>
+                USK<span>_SOLUÇÕES</span>
+            </a>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#inicio" class="nav-item">Início</a></li>
+                <li><a href="#servicos" class="nav-item">Serviços</a></li>
+                <li><a href="#projetos" class="nav-item">Projetos</a></li>
+                <li><a href="#contato" class="nav-item">Contato</a></li>
+            </ul>
+
+            <a href="https://wa.me/244923177678" target="_blank" class="btn header-btn">
+                <i class="fa-brands fa-whatsapp"></i> Fale Conosco
+            </a>
+        </div>
+    </header>
+
+    <!-- SEÇÃO HERO (TOPO) -->
+<section id="inicio" class="hero">
+    <div class="hero-content">
+        <h1>Soluções Tecnológicas</h1>
+        <h3 style="font-weight:700; margin-bottom:15px; color: var(--accent-color);">Venda, manutenção e instalação</h3>
+        <p>Especialistas em segurança eletrônica. Protegemos o seu patrimônio com a tecnologia mais avançada do mercado e profissionais altamente capacitados.</p>
+        <a href="https://wa.me/244923177678" target="_blank" class="btn">
+            Fale AGORA com um Profissional <i class="fa-solid fa-arrow-right"></i>
+        </a>
+    </div>
+</section>
+
+    <!-- SEÇÃO DE SERVIÇOS -->
+    <section id="servicos" class="services-bg">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Card 1 -->
+                <div class="service-card">
+                    <i class="fa-solid fa-bolt service-icon"></i>
+                    <h3>Instalação de Cercas Elétricas</h3>
+                    <p>Barreiras físicas e eletrificadas de alta tensão para residências, condomínios e empresas. Segurança perimetral robusta que inibe qualquer tentativa de invasão.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="service-card">
+                    <i class="fa-solid fa-video service-icon"></i>
+                    <h3>Câmeras de Vigilância</h3>
+                    <p>Sistemas de CFTV com alta resolução (HD/4K) e visão noturna. Monitore a sua propriedade em tempo real a partir de qualquer lugar através do seu smartphone.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="service-card">
+                    <i class="fa-solid fa-location-crosshairs service-icon"></i>
+                    <h3>GPS em Automóveis</h3>
+                    <p>Rastreamento veicular via satélite com bloqueio remoto e alertas de velocidade. Tenha controle total sobre a sua frota ou veículo particular 24h por dia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO DE DIFERENCIAIS -->
+    <section class="differentials-bg">
+        <div class="container">
+            <div class="differentials-grid">
+                <div class="diff-item">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <h3>Materiais de Qualidade</h3>
+                    <p>Trabalhamos exclusivamente com equipamentos de marcas líderes mundiais, garantindo que o seu sistema de segurança não falhe quando você mais precisar.</p>
+                </div>
+                
+                <div class="diff-item">
+                    <i class="fa-solid fa-certificate"></i>
+                    <h3>Garantia Total</h3>
+                    <p>Todos os nossos projetos incluem garantia completa de instalação e dos equipamentos, além de suporte técnico rápido e eficiente para sua tranquilidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- SEÇÃO DE GALERIA / PROJETOS -->
+<section id="projetos">
+    <div class="container">
+        <div class="section-title">
+            <h2>Projetos Recentes</h2>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Foto 1 (Câmeras) -->
+            <div class="gallery-item">
+                <img src="https://www.generall.com.br/wp-content/uploads/2023/08/instalacao-de-cameras-de-seguranca.jpg">
+                <div class="gallery-overlay">
+                    <h4>Sistemas CFTV</h4>
+                    <p>Instalação em Complexo Empresarial</p>
+                </div>
+            </div>
+
+            <!-- Foto 2 (Cerca Elétrica) -->
+            <div class="gallery-item">
+                <img src="https://schimitd.com.br/wp-content/uploads/2022/10/Cerca-Eletrica.png">
+                <div class="gallery-overlay">
+                    <h4>Segurança Perimetral</h4>
+                    <p>Proteção de Condomínio Residencial</p>
+                </div>
+            </div>
+
+            <!-- Foto 3 (GPS) -->
+            <div class="gallery-item">
+                <img src="https://mobisig.com.br/wp-content/uploads/2021/04/Rastreamento-melhor-investimento.jpg">
+                <div class="gallery-overlay">
+                    <h4>Gestão de Frotas</h4>
+                    <p>Instalação de Rastreadores GPS</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- RODAPÉ (FOOTER) -->
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Sobre -->
+                <div class="footer-about">
+                    <a href="#inicio" class="logo" style="color: white;">
+                        <i class="fa-solid fa-shield-halved" style="color: var(--accent-color);"></i>
+                        USK<span style="color: var(--accent-color);">_SOLUÇÕES</span>
+                    </a>
+                    <p>A USK_SOLUÇÕES é a sua parceira de confiança em segurança eletrônica. Levamos tecnologia de ponta para proteger residências e empresas com máxima eficiência e discrição.</p>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#servicos">Nossos Serviços</a></li>
+                        <li><a href="#projetos">Projetos Recentes</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contatos -->
+                <div class="footer-contact">
+                    <h4>Fale Conosco</h4>
+                    <p><i class="fa-solid fa-phone"></i> +244 923 177 678</p>
+                    <p><i class="fa-solid fa-envelope"></i> comercial@usksolucoes.com</p>
+                    <p><i class="fa-solid fa-location-dot"></i> Cassenda, Luanda, Angola</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 USK_SOLUÇÕES. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÃO WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/244923177678" target="_blank" class="whatsapp-float" title="Fale conosco pelo WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPTS EMBUTIDOS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica do Menu Mobile
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.getElementById('nav-links');
+            const navItems = document.querySelectorAll('.nav-item');
+
+            // Abrir/Fechar menu no Mobile
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                
+                // Mudar ícone do menu (Bars para X)
+                const icon = menuToggle.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Fechar menu ao clicar num link (Mobile)
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
+            // Sombra do Header ao rolar a página
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.boxShadow = 'var(--shadow-soft)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
