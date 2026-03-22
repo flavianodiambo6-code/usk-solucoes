@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USK_SOLUÇÕES | Segurança Eletrônica</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-color: #00008B;
+            --accent-color: #FF8C00;
+            --accent-hover: #e07b00;
+            --bg-color: #ffffff;
+            --bg-gray: #f4f6f9;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width:100%; height:auto; display:block; }
+
+        /* BOTÕES */
+        .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:12px 24px; background-color: var(--accent-color); color:white; font-weight:600; font-size:1rem; border-radius:6px; border:none; cursor:pointer; transition: var(--transition); text-transform: uppercase; letter-spacing:0.5px; }
+        .btn:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow:0 4px 15px rgba(255,140,0,0.4); }
+
+        /* HEADER */
+        header { position:fixed; top:0; left:0; width:100%; background-color:white; box-shadow: var(--shadow-soft); z-index:1000; transition: var(--transition); }
+        .container { width:90%; max-width:1200px; margin:0 auto; }
+        .nav-wrapper { display:flex; justify-content:space-between; align-items:center; height:80px; }
+        .logo { font-size:1.5rem; font-weight:800; color: var(--primary-color); display:flex; align-items:center; gap:8px; }
+        .logo span { color: var(--accent-color); }
+        .menu-toggle { font-size:1.8rem; color: var(--primary-color); cursor:pointer; display:block; }
+        .nav-links { position:absolute; top:80px; left:0; width:100%; background:white; flex-direction:column; text-align:center; box-shadow:0 10px 10px rgba(0,0,0,0.1); display:none; }
+        .nav-links.active { display:flex; }
+        .nav-links li { padding:15px 0; border-bottom:1px solid #eee; }
+        .nav-links a { font-weight:600; color: var(--primary-color); transition: var(--transition); }
+        .nav-links a:hover { color: var(--accent-color); }
+        .header-btn { display:none; }
+
+        /* HERO */
+        .hero { margin-top:80px; height: calc(100vh - 80px); min-height:500px; background: linear-gradient(rgba(0,0,139,0.8), rgba(0,0,139,0.85)), url('https://revistasegurancaeletronica.com.br/wp-content/uploads/2021/09/o-que-considerar-antes-de-elaborar-um-projeto-de-monitoramento-e-seguranca.jpg') center/cover no-repeat; display:flex; align-items:center; text-align:center; color:white; padding:20px; }
+        .hero-content { max-width:800px; margin:0 auto; }
+        .hero h1 { font-size:2.2rem; font-weight:800; margin-bottom:15px; text-transform:uppercase; line-height:1.2; }
+        .hero p { font-size:1.1rem; margin-bottom:30px; color:#f0f0f0; }
+
+        /* SEÇÕES */
+        section { padding:80px 0; }
+        .section-title { text-align:center; margin-bottom:50px; }
+        .section-title h2 { font-size:2rem; color: var(--primary-color); display:inline-block; position:relative; }
+        .section-title h2::after { content:''; position:absolute; left:50%; bottom:-10px; transform:translateX(-50%); width:60px; height:4px; background-color: var(--accent-color); border-radius:2px; }
+
+   /* GRID CARDS CENTRALIZADOS */
+.grid-center {
+    display: flex;
+    flex-wrap: wrap;       /* permite que os cards quebrem linha se não couberem */
+    justify-content: center; /* centraliza horizontalmente */
+    gap: 20px;
+    padding-bottom: 10px;
+}
+
+/* CARDS UNIFORMES */
+.card {
+    min-width: 200px;         /* largura mínima */
+    max-width: 200px;         /* largura máxima */
+    height: 380px;            /* altura fixa para uniformidade */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* garante espaçamento uniforme */
+}
+
+.card img {
+    width: 100%;           /* ocupa toda a largura do card */
+    height: 140px;         /* altura fixa para todos os cards */
+    object-fit: cover;     /* corta o excesso e mantém proporção */
+    border-radius: 10px;
+}
+        /* DIFERENCIAIS */
+        .diff-item { background: var(--primary-color); color:white; padding:30px 20px; border-radius:10px; text-align:center; width:250px; }
+        .diff-item i { font-size:3rem; color: var(--accent-color); margin-bottom:15px; }
+        .diff-item h3 { font-size:1.4rem; margin-bottom:10px; }
+        .diff-item p { color:#d1d5db; }
+
+        /* FOOTER */
+/* FOOTER */
+footer {
+    background-color: #ffffff;
+    color: #00008B;
+    padding: 60px 20px 20px;
+    font-size: 1rem;
+}
+
+footer .footer-grid {
+    display: flex;
+    justify-content: space-between; /* distribui as seções */
+    align-items: flex-start;
+    flex-wrap: wrap; /* permite ajustar em telas menores */
+    gap: 40px;
+}
+
+footer .footer-about,
+footer .footer-contact,
+footer .footer-links {
+    flex: 1 1 250px; /* largura mínima de cada coluna */
+}
+
+footer .footer-about img {
+    height: 80px;
+    margin-bottom: 15px;
+}
+
+footer .footer-about p,
+footer .footer-contact p,
+footer .footer-links ul li a {
+    font-size: 1.1rem; /* aumenta o tamanho do texto */
+    margin-bottom: 8px;
+}
+
+footer .footer-links h4,
+footer .footer-contact h4 {
+    color: #FF8C00;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+footer .footer-links ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+footer .footer-links ul li {
+    margin-bottom: 8px;
+}
+
+footer p {
+    line-height: 1.5;
+}
+
+footer p.copy {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #a0aabf;
+}
+
+        /* WHATSAPP */
+        .whatsapp-float { position:fixed; bottom:30px; right:30px; width:60px; height:60px; background-color:#25D366; color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:2rem; box-shadow:0 4px 15px rgba(0,0,0,0.2); z-index:999; transition:var(--transition); }
+        .whatsapp-float:hover { background-color:#1ebe5d; transform:scale(1.1); }
+
+        /* MEDIA QUERIES */
+        @media(min-width:768px) {
+            .menu-toggle { display:none; }
+            .nav-links { position:static; display:flex; flex-direction:row; width:auto; box-shadow:none; gap:30px; }
+            .nav-links li { padding:0; border:none; }
+            .header-btn { display:inline-flex; }
+            .hero h1 { font-size:3.5rem; }
+            .hero p { font-size:1.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container nav-wrapper">
+<a href="#inicio" class="logo">
+    <img src="https://scontent.flad1-2.fna.fbcdn.net/v/t39.30808-6/654304305_122248366526152480_7308929250368771539_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_ohc=k5JtDG_kuXcQ7kNvwFd-jam&_nc_oc=AdpZI3fGUPAdt_PPfEfB5C9uJ15kX-SgIXuXYwzwwotCaM0iX7yD6ObQhesbWqszFyo&_nc_zt=23&_nc_ht=scontent.flad1-2.fna&_nc_gid=9ngBXapm_B7GLSoapDpfTg&_nc_ss=7a30f&oh=00_AfzJvSZcF7Jy-LCzFORZm3kpUy0aYmx_caQZRUKir40btA&oe=69C33C4E" style="height:80px;">
+</a><a href="#inicio" class="logo">
+            </a>
+            <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#diferenciais">Diferenciais</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <a href="https://wa.me/244923177678" target="_blank" class="btn header-btn">
+                <i class="fa-brands fa-whatsapp"></i> Fale Conosco
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Soluções Tecnológicas</h1>
+            <h3 style="font-weight:700; margin-bottom:15px; color: var(--accent-color);">Venda, manutenção e instalação</h3>
+            <p>Especialistas em segurança eletrônica. Protegemos o seu patrimônio com tecnologia avançada e profissionais capacitados.</p>
+            <a href="https://wa.me/244923177678" target="_blank" class="btn">Fale AGORA com um Profissional <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
+<!-- QUEM SOMOS -->
+<section id="quem-somos" style="background-color:#00008B; padding:80px 0;">
+  <div class="container" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:50px;">
+
+    <!-- TEXTO -->
+    <div style="flex:1 1 500px; color:white;">
+      <h2 style="font-size:2.2rem; margin-bottom:20px;">
+        Quem <span style="color:#FF8C00;">Somos</span>
+      </h2>
+
+      <p style="color:#e0e0e0; margin-bottom:15px;">
+        A <strong>USK_SOLUÇÕES</strong> é especializada em segurança eletrônica,
+        atuando na venda, instalação, manutenção e suporte técnico de sistemas tecnológicos de proteção.
+      </p>
+
+      <p style="color:#e0e0e0; margin-bottom:15px;">
+        Oferecemos soluções modernas e personalizadas para residências,
+        empresas, condomínios e estabelecimentos comerciais.
+      </p>
+
+      <p style="color:#e0e0e0; margin-bottom:25px;">
+        Nosso compromisso é proteger patrimônios, pessoas e negócios
+        com profissionalismo, responsabilidade e tecnologia de ponta.
+      </p>
+
+      <a href="https://wa.me/244923177678" target="_blank"
+         style="display:inline-block; background:#FF8C00; color:white; padding:12px 24px; border-radius:6px; font-weight:600; text-transform:uppercase; text-decoration:none;">
+         Fale Conosco
+      </a>
+    </div>
+
+    <!-- IMAGEM -->
+    <div style="flex:1 1 400px; text-align:center;">
+      <img src="https://revistasegurancaeletronica.com.br/wp-content/uploads/2021/09/o-que-considerar-antes-de-elaborar-um-projeto-de-monitoramento-e-seguranca.jpg"
+           alt="Equipe técnica de segurança"
+           style="border-radius:10px; box-shadow:0 8px 25px rgba(0,0,0,0.3); max-width:100%;">
+    </div>
+
+  </div>
+</section>
+
+    <!-- SERVIÇOS -->
+<section id="servicos" class="services-bg">
+    <div class="container">
+        <div class="section-title"><h2>Nossos Serviços</h2></div>
+        <div class="grid-center">
+            <div class="card">
+    <img src="https://scontent.flad1-2.fna.fbcdn.net/v/t39.30808-6/470713597_597607536062660_5811748975111376402_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=XdB9x7DnEvkQ7kNvwEROeGc&_nc_oc=Adr9p919QxlrQjI7gbf-IAs8Eh0jdZjcj80iL203mJzOx8t9CrNm8b4mBdtr2Gjn7hw&_nc_zt=23&_nc_ht=scontent.flad1-2.fna&_nc_gid=yjgLfk1ghEZBpWANW8m76A&_nc_ss=7a30f&oh=00_AfyieZzKjr3CnTebXEBplyfEUgTUCGKWVO1DfBXu024cHw&oe=69C35288" alt="Cerca Elétrica">
+    <h3>Instalação de Cerca Elétrica</h3>
+    <p>Proteção de residências e empresas com sistemas de alta tensão.</p>
+    <a href="https://wa.me/244923177678" target="_blank" class="btn">Solicitar Serviço</a>
+</div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/74/57/be/7457be2206136571c491bcd10af419d2.jpg">
+                <h3>Instalação de Câmeras de Vigilância</h3>
+                <p>Sistemas CCTV/IP com monitoramento remoto 24h.</p>
+                <a href="https://wa.me/244923177678" target="_blank" class="btn">Solicitar Serviço</a>
+            </div>
+            <div class="card">
+                <img src="https://mobisig.com.br/wp-content/uploads/2021/04/Rastreamento-melhor-investimento.jpg" alt="GPS e VoIP">
+                <h3>Instalação e Configuração de GPS e VoIP</h3>
+                <p>Rastreamento veicular e comunicação eficiente.</p>
+                <a href="https://wa.me/244923177678" target="_blank" class="btn">Solicitar Serviço</a>
+            </div>
+            <div class="card">
+                <img src="https://schimitd.com.br/wp-content/uploads/2022/10/Cerca-Eletrica.png" alt="Alarmas">
+                <h3>Instalação de Redes estruturadas</h3>
+                <p>Sistemas de alerta imediato para qualquer invasão.</p>
+                <a href="https://wa.me/244923177678" target="_blank" class="btn">Solicitar Serviço</a>
+            </div>
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/d1/8f/33/d18f335538fa3a845e54150f984d3c07.jpg">
+                <h3>Configuração de Videoporteiro</h3>
+                <p>Controle de acesso seguro e moderno.</p>
+                <a href="https://wa.me/244923177678" target="_blank" class="btn">Solicitar Serviço</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- PRODUTOS -->
+    <section id="produtos">
+        <div class="container">
+            <div class="section-title"><h2>Nossos Produtos</h2></div>
+            <div class="grid-center">
+                <div class="card">
+                    <img src="https://mobisig.com.br/wp-content/uploads/2021/04/Rastreamento-melhor-investimento.jpg" alt="Câmera HD">
+                    <h3>Câmera HD</h3>
+                    <p>Preço: 15.000 Kz</p>
+                    <a href="https://wa.me/244923177678" target="_blank" class="btn">Comprar Agora</a>
+                </div>
+                <div class="card">
+                    <img src="https://schimitd.com.br/wp-content/uploads/2022/10/Cerca-Eletrica.png" alt="Cerca Elétrica">
+                    <h3>Cerca Elétrica</h3>
+                    <p>Preço: 15.000 Kz</p>
+                    <a href="https://wa.me/244923177678" target="_blank" class="btn">Comprar Agora</a>
+                </div>
+                <div class="card">
+                    <img src="https://revistasegurancaeletronica.com.br/wp-content/uploads/2021/09/o-que-considerar-antes-de-elaborar-um-projeto-de-monitoramento-e-seguranca.jpg" alt="Alarme Anti-intrusão">
+                    <h3>Alarme Anti-intrusão</h3>
+                    <p>Preço: 15.000 Kz</p>
+                    <a href="https://wa.me/244923177678" target="_blank" class="btn">Comprar Agora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section id="diferenciais" class="services-bg">
+        <div class="container">
+            <div class="section-title"><h2>Diferenciais</h2></div>
+            <div class="grid-center">
+                <div class="diff-item">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <h3>Materiais de Qualidade</h3>
+                    <p>Equipamentos das melhores marcas para máxima segurança.</p>
+                </div>
+                <div class="diff-item">
+                    <i class="fa-solid fa-certificate"></i>
+                    <h3>Garantia Total</h3>
+                    <p>Garantia completa em todos os equipamentos e instalação.</p>
+                </div>
+                <div class="diff-item">
+                    <i class="fa-solid fa-users"></i>
+                    <h3>Suporte Rápido</h3>
+                    <p>Atendimento ágil e eficiente para qualquer necessidade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos">
+        <div class="container">
+            <div class="section-title"><h2>Projetos Recentes</h2></div>
+            <div class="grid-center">
+                <div class="card">
+                    <img src="https://www.generall.com.br/wp-content/uploads/2023/08/instalacao-de-cameras-de-seguranca.jpg" alt="Projeto CCTV">
+                    <h3>Sistemas CFTV</h3>
+                    <p>Instalação em Complexo Empresarial</p>
+                </div>
+                <div class="card">
+                    <img src="https://schimitd.com.br/wp-content/uploads/2022/10/Cerca-Eletrica.png" alt="Projeto Perimetral">
+                    <h3>Segurança Perimetral</h3>
+                    <p>Proteção de Condomínio Residencial</p>
+                </div>
+                <div class="card">
+                    <img src="https://mobisig.com.br/wp-content/uploads/2021/04/Rastreamento-melhor-investimento.jpg" alt="Projeto GPS">
+                    <h3>Gestão de Frotas</h3>
+                    <p>Instalação de Rastreadores GPS</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contato">
+        <div class="container">
+            <div class="footer-grid">
+             <div class="footer-about">
+    <a href="#inicio" style="display:inline-block;">
+        <img src="https://scontent.flad1-2.fna.fbcdn.net/v/t39.30808-6/654304305_122248366526152480_7308929250368771539_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_ohc=k5JtDG_kuXcQ7kNvwFd-jam&_nc_oc=AdpZI3fGUPAdt_PPfEfB5C9uJ15kX-SgIXuXYwzwwotCaM0iX7yD6ObQhesbWqszFyo&_nc_zt=23&_nc_ht=scontent.flad1-2.fna&_nc_gid=9ngBXapm_B7GLSoapDpfTg&_nc_ss=7a30f&oh=00_AfzJvSZcF7Jy-LCzFORZm3kpUy0aYmx_caQZRUKir40btA&oe=69C33C4E" 
+             alt="USK_Soluções" 
+             style="height:60px; display:block;">
+    </a>
+    <p>A USK_SOLUÇÕES é a sua parceira de confiança em segurança eletrônica.</p>
+</div>
+                <div class="footer-links">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#diferenciais">Diferenciais</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p>Telefone: +244 923 177 678</p>
+                    <p>Email: info@usk.com</p>
+                    <p>Luanda, Angola</p>
+                </div>
+            </div>
+            <p style="text-align:center; color:#a0aabf;">&copy; 2026 USK_SOLUÇÕES. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLUTUANTE -->
+    <a href="https://wa.me/244923177678" target="_blank" class="whatsapp-float"><i class="fa-brands fa-whatsapp"></i></a>
+
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
